@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/image")
 public class ImageController {
 
     private final ImageService imageService;
