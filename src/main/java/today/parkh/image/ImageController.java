@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.Resource;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
+import today.parkh.image.dto.SaveImageRequest;
 
 @RestController
 @RequiredArgsConstructor
@@ -15,10 +15,10 @@ public class ImageController {
 
     // 이미지 저장
     @PostMapping
-    public String saveImage(@RequestParam MultipartFile file) {
-        String storedName = imageService.saveImage(file);
+    public String saveImage(SaveImageRequest request) {
+        String imageUri = imageService.saveImage(request.convert());
 
-        return storedName;
+        return imageUri;
     }
 
     // 이미지 조회
